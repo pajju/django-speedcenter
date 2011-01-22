@@ -1,4 +1,5 @@
 from speedcenter.settings import *
+import speedcenter
 
 DATABASES = {
         'default': {
@@ -15,7 +16,7 @@ CACHE_BACKEND = 'memcached://127.0.0.1:11211'
 
 TEMPLATE_DIRS = (
         os.path.join(os.path.dirname(__file__), 'templates'),
-        os.path.join(os.path.dirname(__file__), '..', 'codespeed', 'speedcenter', 'templates'),
+        os.path.join(os.path.dirname(speedcenter.__file__), 'templates'),
         )
 
 ROOT_URLCONF = 'django_speedcenter.urls'
