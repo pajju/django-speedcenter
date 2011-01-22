@@ -1,0 +1,35 @@
+{% extends "site_base.html" %}
+
+{% block title %}{{ block.super }}: About this site{% endblock %}
+
+{% block body %}
+<div id="about" class="about_content clearfix">
+  <h3>About this site</h3>
+
+  <p>An experimental service for the Django community designed to track
+  performance over time: other projects will be supported soon.</p>
+
+  <h3>Contact</h3>
+
+  <p>Contact <a href="mailto:chris@improbable.org">chris@improbable.org</a> / <a href="http://twitter.com/acdha">@acdha</a> with questions</p>
+
+  <table>
+    <caption>Powered By</caption>
+    <tr>
+      <th>Project</th>
+      <th>Description</th>
+      <th>Source</th>
+    </tr>
+    <tr>
+      <th>Django-Speedcenter</th>
+      <td>The source behind this site</td>
+      <td><a href="http://github.com/acdha/django-speedcenter">github.com/acdha/django-speedcenter</a></td>
+    </tr>
+    <tr>
+      <th>Codespeed</th>
+      <td>Codespeed is a web application to monitor and analyze the performance of your code</td>
+      <td><a href="http://github.com/acdha/codespeed">github.com/acdha/codespeed</a> which is a fork of <a href="http://github.com/tobami/codespeed">github.com/tobami/codespeed</a></td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

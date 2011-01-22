@@ -1,0 +1,11 @@
+div#title {
+    height: 70px;
+}
+
+#title h2 {
+    padding-top: 18px;
+}
+
+.footer {
+    width: 40em;
+}
