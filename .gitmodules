@@ -1,3 +1,0 @@
-[submodule "codespeed"]
-	path = codespeed
-	url = git://github.com/acdha/codespeed.git
