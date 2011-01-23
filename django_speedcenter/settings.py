@@ -21,6 +21,7 @@ TEMPLATE_DIRS = (
 
 ROOT_URLCONF = 'django_speedcenter.urls'
 
+DEBUG = False
 SERVE_STATIC = True
 
 # django-sentry requirements:
