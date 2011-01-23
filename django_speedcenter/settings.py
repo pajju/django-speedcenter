@@ -22,3 +22,6 @@ TEMPLATE_DIRS = (
 ROOT_URLCONF = 'django_speedcenter.urls'
 
 SERVE_STATIC = True
+
+# django-sentry requirements:
+INSTALLED_APPS += ('indexer', 'paging', 'sentry', 'sentry.client')

@@ -1,2 +1,15 @@
 -e git://github.com/acdha/codespeed.git@ebdbcb6ca84eb513bc3cb62e269d6a9d74ff614d#egg=codespeed
-isodate
+# isodate>=0.4.3
+# django-sentry>=1.6.1
+# django-indexer>=0.2.1
+# django-paging>=0.2.2
+# django-templatetag-sugar>=0.1
+# uuid>=1.30
+
+# Avoid PyPI downtime:
+http://b.pypi.python.org/packages/source/i/isodate/isodate-0.4.0.tar.gz#md5=74eb2ffca6ab3318d6627f25f88e24e5
+http://b.pypi.python.org/packages/source/u/uuid/uuid-1.30.tar.gz#md5=639b310f1fe6800e4bf8aa1dd9333117
+https://github.com/alex/django-templatetag-sugar/tarball/0.1
+https://github.com/dcramer/django-indexer/tarball/master
+https://github.com/dcramer/django-paging/tarball/master
+https://github.com/dcramer/django-sentry/tarball/master

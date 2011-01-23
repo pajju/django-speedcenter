@@ -9,6 +9,7 @@ from django.conf.urls.defaults import patterns, include, handler404, handler500
 urlpatterns = patterns('',
     (r'^ds-media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': os.path.join(os.path.dirname(__file__), "media")}),
+    (r'^sentry/', include('sentry.urls')),
 )
 
 urlpatterns += patterns('',
