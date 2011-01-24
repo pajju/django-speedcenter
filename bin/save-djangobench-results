@@ -93,7 +93,7 @@ def main():
         try:
             save_result(data, options)
         except StandardError, e:
-            logging.warning("Error saving %s: %s", f, e, exc_info=e)
+            logging.warning("Error saving %s: %s", f, e, exc_info=True)
             sys.exit(1)
             
 if __name__ == "__main__":
