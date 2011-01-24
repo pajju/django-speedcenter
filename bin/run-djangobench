@@ -1,0 +1,35 @@
+#!/bin/sh
+
+set -e
+
+REV_HISTORY_FILE="$HOME/.djangobench-last-rev"
+
+PYTHON_VER="`python -V 2>&1`"
+
+cd $DJANGO_ROOT
+
+git checkout --quiet --force master
+git clean -f -d
+git fetch --quiet --all --tags
+git pull --quiet
+
+LATEST_REV=`git rev-parse HEAD`
+
+if [ ! -f $REV_HISTORY_FILE ]; then
+	PREVIOUS_REV=HEAD^
+else
+	PREVIOUS_REV=`cat $REV_HISTORY_FILE`
+fi
+
+echo $LATEST_REV > $REV_HISTORY_FILE
+
+for commit in `git log $PREVIOUS_REV..$LATEST_REV --format=%H`; do
+    git checkout --quiet --force master
+    git clean -f -d
+
+    RESULT_DIR="$HOME/djangobench-results/$commit"
+    mkdir -p "$RESULT_DIR"
+    djangobench --vcs=git --control=1.2 --experiment=$commit -r $RESULT_DIR > $RESULT_DIR/djangobench.log
+
+    save-djangobench-results --url=http://djspeedcenter.djangy.com/result/add/ --project=Django --environment="EC2 Micro" --commit-id=$commit --executable="$PYTHON_VER" "$RESULT_DIR"
+done
