@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -16,20 +16,26 @@ git pull --quiet
 LATEST_REV=`git rev-parse HEAD`
 
 if [ ! -f $REV_HISTORY_FILE ]; then
-	PREVIOUS_REV=HEAD^
+    PREVIOUS_REV=HEAD^
 else
-	PREVIOUS_REV=`cat $REV_HISTORY_FILE`
+    PREVIOUS_REV=`cat $REV_HISTORY_FILE`
 fi
 
 echo $LATEST_REV > $REV_HISTORY_FILE
 
-for commit in `git log $PREVIOUS_REV..$LATEST_REV --format=%H`; do
-    git checkout --quiet --force master
+for commit in `git log --reverse $PREVIOUS_REV..$LATEST_REV --format=%H`; do
+    # Ensure that we never try to run a given commit more than once:
+    echo $commit > $REV_HISTORY_FILE
+
+    git checkout --quiet --force $commit
     git clean -f -d
 
     RESULT_DIR="$HOME/djangobench-results/$commit"
     mkdir -p "$RESULT_DIR"
+
+    echo -n "Benchmarking $commit…"
     djangobench --vcs=git --control=1.2 --experiment=$commit -r $RESULT_DIR > $RESULT_DIR/djangobench.log
+    echo " Done"
 
     save-djangobench-results --url=http://djspeedcenter.djangy.com/result/add/ --project=Django --environment="EC2 Micro" --commit-id=$commit --executable="$PYTHON_VER" "$RESULT_DIR"
 done
