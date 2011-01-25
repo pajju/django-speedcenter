@@ -4,6 +4,7 @@ set -e
 
 REV_HISTORY_FILE="$HOME/.djangobench-last-rev"
 
+ENVIRONMENT=${DJANGOBENCH_ENVIRONMENT:-MacBook Air}
 PYTHON_VER="`python -V 2>&1`"
 
 cd $DJANGO_ROOT
@@ -33,9 +34,9 @@ for commit in `git log --reverse $PREVIOUS_REV..$LATEST_REV --format=%H`; do
     RESULT_DIR="$HOME/djangobench-results/$commit"
     mkdir -p "$RESULT_DIR"
 
-    echo -n "Benchmarking $commit…"
+    echo -n "Benchmarking ${commit}…"
     djangobench --vcs=git --control=1.2 --experiment=$commit -r $RESULT_DIR > $RESULT_DIR/djangobench.log
     echo " Done"
 
-    save-djangobench-results --url=http://djspeedcenter.djangy.com/result/add/ --project=Django --environment="EC2 Micro" --commit-id=$commit --executable="$PYTHON_VER" "$RESULT_DIR"
+    save-djangobench-results --url=http://djspeedcenter.djangy.com/result/add/ --project=Django --environment="$ENVIRONMENT" --commit-id=$commit --executable="$PYTHON_VER" "$RESULT_DIR"
 done
