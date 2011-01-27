@@ -25,4 +25,4 @@ DEBUG = False
 SERVE_STATIC = True
 
 # django-sentry requirements:
-INSTALLED_APPS += ('indexer', 'paging', 'sentry', 'sentry.client')
+INSTALLED_APPS += ('indexer', 'paging', 'sentry', 'sentry.client', 'south')
