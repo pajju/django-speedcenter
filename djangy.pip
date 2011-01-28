@@ -1,4 +1,4 @@
--e git://github.com/acdha/codespeed.git@0814e636afb5712392096b5173539312c620da17#egg=codespeed
+-e git://github.com/acdha/codespeed.git@b7c2cfc3d9bb2eed4431#egg=codespeed
 isodate>=0.4.3
 django-indexer>=0.2.1
 django-paging>=0.2.2
