@@ -1,4 +1,4 @@
--e git://github.com/acdha/codespeed.git@b7c2cfc3d9bb2eed4431#egg=codespeed
+https://github.com/acdha/codespeed/tarball/8761b66d4dafb63d7da7e6f31731583005560cac#egg=codespeed
 isodate>=0.4.3
 django-indexer>=0.2.1
 django-paging>=0.2.2
@@ -12,3 +12,5 @@ uuid>=1.30
 # https://github.com/dcramer/django-indexer/tarball/master
 # https://github.com/dcramer/django-paging/tarball/master
 https://github.com/dcramer/django-sentry/tarball/master
+
+https://github.com/acdha/django-sugar/tarball/master
