@@ -1,4 +1,4 @@
-https://github.com/acdha/codespeed/tarball/8761b66d4dafb63d7da7e6f31731583005560cac#egg=codespeed
+-e git+git://github.com/acdha/codespeed.git@8761b66d4dafb63d7da7e6f31731583005560cac#egg=codespeed
 isodate>=0.4.3
 django-indexer>=0.2.1
 django-paging>=0.2.2
@@ -11,6 +11,6 @@ uuid>=1.30
 # https://github.com/alex/django-templatetag-sugar/tarball/0.1
 # https://github.com/dcramer/django-indexer/tarball/master
 # https://github.com/dcramer/django-paging/tarball/master
-https://github.com/dcramer/django-sentry/tarball/master
+-e git+git://github.com/dcramer/django-sentry.git@master#egg=django-sentry
 
-https://github.com/acdha/django-sugar/tarball/master
+-e git+git://github.com/acdha/django-sugar.git@master#egg=django-sugar
