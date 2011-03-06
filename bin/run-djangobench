@@ -38,5 +38,5 @@ for commit in `git log --reverse $PREVIOUS_REV..$LATEST_REV --format=%H`; do
     djangobench --vcs=git --control=1.2 --experiment=$commit -r $RESULT_DIR > $RESULT_DIR/djangobench.log
     echo " Done"
 
-    save-djangobench-results --url=http://djspeedcenter.djangy.com/result/add/ --project=Django --environment="$ENVIRONMENT" --commit-id=$commit --executable="$PYTHON_VER" "$RESULT_DIR"
+    save-djangobench-results --url=${SPEEDCENTER_ADD_URL:-"http://127.0.0.1:8000/result/add/"} --project=Django --environment="$ENVIRONMENT" --commit-id=$commit --executable="$PYTHON_VER" "$RESULT_DIR"
 done
