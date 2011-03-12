@@ -6,7 +6,7 @@ uuid==1.30
 
 Django==1.2.5
 South==0.7.3
-django-sentry==1.6.1
+django-sentry>=1.6.5
 
 http://github.com/acdha/django-sugar/tarball/master#egg=django-sugar
 
