@@ -5,6 +5,7 @@ import json
 import os
 import logging
 import sys
+import time
 
 from speedcenter.client import save_to_speedcenter
 
@@ -45,8 +46,13 @@ def save_result(data, options):
     else:
         exp_params.update({'result_value': result['changed_time']})
 
-    save_to_speedcenter(commitid=options.commit_id,
-                        **exp_params)
+    for i in range(0, 5):
+        try:
+            save_to_speedcenter(commitid=options.commit_id, **exp_params)
+            break
+        except IOError, e:
+            print >>sys.stderr, u"ERROR: Unable to save results (try #%d):  %s" % (i, e)
+            time.sleep(3)
 
 
 def main():
