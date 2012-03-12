@@ -1,12 +1,8 @@
 isodate==0.4.3
-django-indexer==0.2.1
-django-paging==0.2.2
 django-templatetag-sugar==0.1
 uuid==1.30
 
 Django==1.2.5
-South==0.7.3
-django-sentry==1.6.5
 
 http://github.com/acdha/django-sugar/tarball/master#egg=django-sugar
 
